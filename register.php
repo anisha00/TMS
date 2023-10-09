@@ -1,3 +1,22 @@
+<?php
+    include('includes/connection.php');
+    if(isset($_POST['userRegister'])){
+        $query="insert into users values(null,'$_POST[name]','$_POST[email]','$_POST[password]','$_POST[phoneNo]')";
+        $query_run=mysqli_query($conn,$query);
+        if($query_run){
+            echo"<script type=text/javascript>
+            alert('User registered successful!!');
+            window.location.href='index.php';
+            </script>";
+        }
+        else{
+            echo"<script type=text/javascript>
+            alert('Error!!Please try again');
+            window.location.href='register.php';
+            </script>";
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +45,7 @@
             <input type="text" name="phoneNo" class="form-control" placeholder="Enter your Phone No." required/>
             </div>
             <div class="form-group"><center>
-            <input type="submit" name="userLogin" class="btn btn-success" value="LOGIN" /></center>
+            <input type="submit" name="userRegister" class="btn btn-success" value="LOGIN" /></center>
             </div>
         </form>
         <center>

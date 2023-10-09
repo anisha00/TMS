@@ -1,3 +1,21 @@
+<?php
+    include('../includes/connection.php');
+    if(isset($_POST['adminLogin'])){
+        $query="select email,password,name,Uid from users where email='$_POST[email]' AND password= '$_POST[password]'";
+        $query_run=mysqli_query($conn,$query);
+        if($query_run){
+            echo"<script type=text/javascript>
+            window.location.href='admin_dashboard.php';
+            </script>";
+        }
+        else{
+            echo"<script type=text/javascript>
+            alert('Error!!Please try again');
+            window.location.href='admin_login.php';
+            </script>";
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +38,7 @@
             <input type="password" name="password" class="form-control" placeholder="Enter your password" required/>
             </div>
             <div class="form-group"><center>
-            <input type="submit" name="userLogin" class="btn btn-success" value="LOGIN" /></center>
+            <input type="submit" name="adminLogin" class="btn btn-success" value="LOGIN" /></center>
             </div>
         </form>
         <center>
