@@ -1,0 +1,26 @@
+body{
+  margin-top: 20px;
+    
+}
+h3{
+    padding: 0px 12px 12px 12px;
+    color:rgb(0, 138, 34);
+}
+#homepage{
+    border: 2px solid rgb(0, 138, 34);
+    padding: 20px;
+    border-radius: 8px;
+    background-color: rgb(239, 255, 239);
+}
+#user-login-page{
+    border: 2px solid rgb(0, 138, 34);
+    padding: 20px;
+    border-radius: 8px;
+    background-color: rgb(239, 255, 239);
+}
+#register-login-page{
+    border: 2px solid rgb(0, 138, 34);
+    padding: 20px;
+    border-radius: 8px;
+    background-color: rgb(239, 255, 239);
+}
