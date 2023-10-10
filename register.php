@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="bootstrap/css/style.css">
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="includes/jquery-3.5.1.js"></script>
 </head>
 <body>
 <div class="row">

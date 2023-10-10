@@ -7,6 +7,17 @@
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/style.css">
     <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script src="../includes/jquery-3.5.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#create_task").click(function(){
+                $("#right_bar").load("create_task.php");
+            });
+        });
+    </script>
+
+
+
 </head>
 <body>
     <div class="row" id="header">
@@ -36,21 +47,26 @@
                     <a href="admin_dashboard.php" type="button" id="buttonthis">Dashboard</a>
                 </td>
             </tr>
+
+
             <tr>
                 <td style="text-align: center">
-                    <a href="manage_task.php" type="button">Manage task</a>
+                    <a type="button"  class="link" id="create_task">Create task</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="text-align: center">
+                    <a href="manage_task.php" type="button"  class="link"  id="manage_task">Manage task</a>
                 </td>
             </tr>
             <tr>
                 <td style="text-align: center">
-                    <a href="apply_leave.php" type="button">Leave Applications</a>
+                    <a href="apply_leave.php" type="button"  class="link" id="leave_request">Leave Applications</a>
                 </td>
             </tr>
-            <tr>
-                <td style="text-align: center">
-                    <a href="leave_check.php" type="button">Leave status</a>
-                </td>
-            </tr>
+            
+              
             <tr>
                 <td style="text-align: center">
                     <a href="logout.php" type="button" id="buttonthis">Logout</a>
@@ -79,14 +95,6 @@
 
 </div>
 </div>
-
-
-  
-
-
-
-
-
 
 </body>
 </html>
