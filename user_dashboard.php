@@ -67,14 +67,14 @@
     <div class="col-md-10" id="right_bar">
 
 
-    <h3>warning </h3>
+    <h3>Warning </h3>
 
     <ul style="Line-height:3em; font-size: 1.2em;List-style-type:none; ">
 
-    <li>1. This is this </li>
-    <li>2. This is this </li>
-    <li>3. This is this </li>
-    <li>4. This is this </li>
+    <li>1. User can only view their tasks </li>
+    <li>2. User can only update on their tasks </li>
+    <li>3. user are not admins </li>
+    <li>4. Logout for ending your session </li>
 
 
 
