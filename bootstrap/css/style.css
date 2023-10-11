@@ -36,11 +36,15 @@ h3 {
     padding-bottom: 5px;
     padding-left: 50px;
 }
-
-#buttonthis:hover {
-    background-color: rgb(244, 124, 124);
-    color: rgb(246, 168, 168);
+#buttonthis{
+    text-decoration: none;
+    color:rgb(98, 54, 0);
 }
+#buttonthis:hover {
+    background-color:none;
+    color: rgb(255, 132, 0);
+}
+
 
 #left_bar {
     margin-top: 50px;
@@ -51,13 +55,17 @@ h3 {
 
 #left_bar table tr {
     background-color: bisque;
-    color: wheat;
+   
     font-size: 18px;
 }
 
 #left_bar table tr:hover {
     background-color: rgb(235, 246, 156);
-    color: rgb(192, 237, 241);
+    color:green;
+}
+.link{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
 }
 
 #right_bar {

@@ -1,21 +1,36 @@
 <?php
-    include('includes/connection.php');
-    if(isset($_POST['userRegister'])){
-        $query="insert into users values(null,'$_POST[name]','$_POST[email]','$_POST[password]','$_POST[phoneNo]')";
-        $query_run=mysqli_query($conn,$query);
-        if($query_run){
-            echo"<script type=text/javascript>
-            alert('User registered successful!!');
-            window.location.href='index.php';
-            </script>";
-        }
-        else{
-            echo"<script type=text/javascript>
-            alert('Error!!Please try again');
-            window.location.href='register.php';
-            </script>";
-        }
+include('includes/connection.php');
+if(isset($_POST['userRegister'])){
+
+    $password = $_POST['password'];
+    $hash = password_hash($password, PASSWORD_DEFAULT); 
+    $check="select email,password,name,uid from users where email='$_POST[email]'";
+    $query_check=mysqli_query($conn,$check);
+    if(mysqli_num_rows($query_check)){
+        echo"<script type=text/javascript>
+        alert('Email already registered!!');
+        </script>";
     }
+    // Print the generated hash 
+    else{
+    $query="insert into users values(null,'$_POST[name]','$_POST[email]','$hash','$_POST[phoneNo]')";
+    $query_run=mysqli_query($conn,$query);
+    if($query_run){
+        
+        echo"<script type=text/javascript>
+        alert('User registered successful!!');
+        window.location.href='index.php';
+        </script>";
+    }
+    else{
+        echo"<script type=text/javascript>
+        alert('Error!!Please try again');
+        window.location.href='registercopy.php';
+        </script>";
+    }
+}
+}
+ 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +38,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Page</title>
+    <script src="includes/jquery-3.5.1.js"></script>
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="bootstrap/css/style.css">
     <script src="bootstrap/js/bootstrap.min.js"></script>
