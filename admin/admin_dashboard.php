@@ -1,3 +1,30 @@
+<?php
+    include('../includes/connection.php');
+    if(isset($_POST['create_task'])){
+        $query = "insert into tasks values(null , $_POST[id] , '$_POST[description]' , '$_POST[start_date]' , '$_POST[end_date]' , 'Not Started')";
+        $query_run = mysqli_query($conn,$query);
+        if($query_run){
+        echo"<script type='text/javascript'>
+        alert('Task created successfully.......');
+        window.location.href='admin_dashboard.php';
+        </script>";
+
+        }
+
+        else{
+
+            echo"<script type='text/javascript'>
+            alert('Error!!Please try again');
+            window.location.href='admin_dashboard.php';
+            </script>";
+
+
+
+        }
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +39,14 @@
         $(document).ready(function(){
             $("#create_task").click(function(){
                 $("#right_bar").load("create_task.php");
+            });
+        });
+
+
+
+        $(document).ready(function(){
+            $("#manage_task").click(function(){
+                $("#right_bar").load("manage_task.php");
             });
         });
     </script>
@@ -57,7 +92,7 @@
 
             <tr>
                 <td style="text-align: center">
-                    <a href="manage_task.php" type="button"  class="link"  id="manage_task">Manage task</a>
+                    <a type="button"  class="link"  id="manage_task">Manage task</a>
                 </td>
             </tr>
             <tr>
@@ -69,7 +104,7 @@
               
             <tr>
                 <td style="text-align: center">
-                    <a href="logout.php" type="button" id="buttonthis">Logout</a>
+                    <a href="../logout.php" type="button" id="buttonthis">Logout</a>
                 </td>
             </tr>
         </table>

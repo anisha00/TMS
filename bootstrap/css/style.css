@@ -60,6 +60,19 @@ h3 {
     color: rgb(192, 237, 241);
 }
 
+
+.link{
+    text-decoration: none;
+    color: white;
+}
+
+
+.link:hover{
+    color: black;
+}
+
+
+
 #right_bar {
     margin-top: 50px;
     width: 100px; 
