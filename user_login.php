@@ -14,6 +14,7 @@ if(isset($_POST['userLogin'])){
         if($verify==1){
             $_SESSION['email'] = $row['email'];
              $_SESSION['name'] = $row['name'];
+             $_SESSION['uid'] = $row['uid'];
             echo"<script type=text/javascript>
             window.location.href='user_dashboard.php';
             </script>";
