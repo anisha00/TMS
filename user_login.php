@@ -1,20 +1,34 @@
 <?php
-    include('includes/connection.php');
-    if(isset($_POST['userLogin'])){
-        $query="select email,password,name,Uid from users where email='$_POST[email]' AND password= '$_POST[password]'";
-        $query_run=mysqli_query($conn,$query);
-        if($query_run){
+session_start();
+include('includes/connection.php'); 
+if(isset($_POST['userLogin'])){
+    $email=$_POST['email'];
+    $password = $_POST['password'];
+    
+    $check="select email,password,name,uid from users where email='$email'";
+    $query_check=mysqli_query($conn,$check);
+    if(mysqli_num_rows($query_check)) 
+    {   $row=mysqli_fetch_assoc($query_check);
+    
+        $verify=password_verify($password,$row['password']);
+        if($verify==1){
+            $_SESSION['email'] = $row['email'];
+             $_SESSION['name'] = $row['name'];
+             $_SESSION['uid'] = $row['uid'];
             echo"<script type=text/javascript>
             window.location.href='user_dashboard.php';
             </script>";
         }
-        else{
-            echo"<script type=text/javascript>
-            alert('Error!!Please try again');
+
+    }
+    else{
+        echo"<script type=text/javascript>
+            alert('Error email did not match!!Please try again');
             window.location.href='user_login.php';
             </script>";
-        }
     }
+    
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +36,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Login</title>
+    <script src="includes/jquery-3.5.1.js"></script>
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="bootstrap/css/style.css">
     <script src="bootstrap/js/bootstrap.min.js"></script>
