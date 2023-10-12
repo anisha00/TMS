@@ -44,8 +44,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label>  Description : </label>
-                    <textarea class="from-control"  rows="3" cols="80" name="description" placeholder="Mention the task" ></textarea>
+                    <label>  Description :</label></br>
+                    <textarea class="from-control" rows="3" cols="80" name="description" placeholder="Mention the task" ></textarea>
 
                 </div>
 

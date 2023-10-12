@@ -2,20 +2,13 @@
     include('../includes/connection.php');
 ?>
 
-<!DOCTYPE html>
+
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Task</title>
-    <script src="../includes/jquery-3.5.1.js"></script>
-    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../bootstrap/css/style.css">
-    <script src="../bootstrap/js/bootstrap.min.js"></script>
-</head>
+
 <body>
+
    <center> <h3>Total assigned task list</h3></center><br>
-    <table class="table">
+    <table>
         <tr>
             <th>Number</th>
             <th>Task ID</th>
@@ -31,22 +24,29 @@
             $query = "select * from tasks";
             $query_run = mysqli_query($conn,$query);
             while($row = mysqli_fetch_assoc($query_run)){
-        ?><tr>
-            
+                ?>
+                <tr>
                 <td><?php echo $sno ; ?></td>
                 <td><?php echo $row['tid']; ?></td>
                 <td><?php echo $row['description']; ?></td>
                 <td><?php echo $row['start_date']; ?></td>
                 <td><?php echo $row['end_date']; ?></td>
                 <td><?php echo $row['status']; ?></td>
-                <td><a href="">Edit </a> | <a href="">Delete </a> </td>
+                <td><a href="edit_task.php ?id=<?php echo $row['tid']; ?>">Edit </a> | <a href="delete_task.php ?id=<?php echo $row['tid']; ?>">Delete </a> </td>
 
-        </tr>
+                </tr>
 
-        <?php
+                <?php
                 $sno = $sno + 1;
+
+
             }
-        ?>
-    </table>   
+
+
+
+            ?>
+    </table>
+
+    
 </body>
 </html>

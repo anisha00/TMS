@@ -1,24 +1,30 @@
 <?php
-    session_start();
     include('../includes/connection.php');
     if(isset($_POST['create_task'])){
-        $query= "insert into tasks values(null,$_POST[id],'$POST[description]','_POST[start_date]',
-        '_POST[end_date]','Not Started')";
-        $query_run= mysqli_query($conn,$query);
+        $query = "insert into tasks values(null , $_POST[id] , '$_POST[description]' , '$_POST[start_date]' , '$_POST[end_date]' , 'Not Started')";
+        $query_run = mysqli_query($conn,$query);
         if($query_run){
-            echo"<script type=text/javascript>
-            alert('Task created successfully!!');
-            window.location.href='admin_dashboard.php';
-            </script>";
+        echo"<script type='text/javascript'>
+        alert('Task created successfully.......');
+        window.location.href='admin_dashboard.php';
+        </script>";
+
         }
+
         else{
-            echo"<script type=text/javascript>
-            alert('Error!!Try Again!!');
+
+            echo"<script type='text/javascript'>
+            alert('Error!!Please try again');
             window.location.href='admin_dashboard.php';
             </script>";
+
+
+
         }
     }
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,6 +39,14 @@
         $(document).ready(function(){
             $("#create_task").click(function(){
                 $("#right_bar").load("create_task.php");
+            });
+        });
+
+
+
+        $(document).ready(function(){
+            $("#manage_task").click(function(){
+                $("#right_bar").load("manage_task.php");
             });
         });
     </script>
@@ -50,8 +64,8 @@
 
             <div class="col-md-6" style="display : inline-block ; text-align:right;">
 
-            <b>Your Email : </b> <?php echo $_SESSION['email']; ?>
-            <span style="margin-left: 25px"><b>Your Name : </b>  <?php echo $_SESSION['name']; ?> </span>
+            <b>Your Email : </b> admin@gmail.com
+            <span style="margin-left: 25px"><b>Your Name : </b> test </span>
             
 
             </div>
@@ -72,16 +86,20 @@
 
             <tr>
                 <td style="text-align: center">
-                    <a type="button" class="link" id="create_task">Create task</a>
+                    <a type="button"  class="link" id="create_task">Create task</a>
                 </td>
             </tr>
 
             <tr>
                 <td style="text-align: center">
-                    <a  type="button"  class="link"  id="manage_task">Manage task</a>
+                    <a type="button"  class="link"  id="manage_task">Manage task</a>
                 </td>
             </tr>
-            
+            <tr>
+                <td style="text-align: center">
+                    <a href="apply_leave.php" type="button"  class="link" id="leave_request">Leave Applications</a>
+                </td>
+            </tr>
             
               
             <tr>
