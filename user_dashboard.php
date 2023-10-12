@@ -67,14 +67,14 @@
     <div class="col-md-10" id="right_bar">
 
 
-    <h3>Warning </h3>
+    <h3>"Hi <?php echo $_SESSION['name']; ?>!!! "  </h3>
 
     <ul style="Line-height:3em; font-size: 1.2em;List-style-type:none; ">
 
+    <li>Welcome.. </li>
     <li>1. User can only view their tasks </li>
-    <li>2. User can only update on their tasks </li>
-    <li>3. user are not admins </li>
-    <li>4. Logout for ending your session </li>
+    <li>2. User can only update on their tasks. </li>
+    <li>3. Logout for ending your session </li>
 
 
 

@@ -1,4 +1,5 @@
 <?php
+session_start();
     include('../includes/connection.php');
     if(isset($_POST['create_task'])){
         $query = "insert into tasks values(null , $_POST[id] , '$_POST[description]' , '$_POST[start_date]' , '$_POST[end_date]' , 'Not Started')";
@@ -64,8 +65,8 @@
 
             <div class="col-md-6" style="display : inline-block ; text-align:right;">
 
-            <b>Your Email : </b> admin@gmail.com
-            <span style="margin-left: 25px"><b>Your Name : </b> test </span>
+            <b>Your Email : </b> <?php echo $_SESSION['email'];?>
+            <span style="margin-left: 25px"><b>Your Name : </b> <?php echo $_SESSION['name'];?></span>
             
 
             </div>
@@ -95,12 +96,6 @@
                     <a type="button"  class="link"  id="manage_task">Manage task</a>
                 </td>
             </tr>
-            <tr>
-                <td style="text-align: center">
-                    <a href="apply_leave.php" type="button"  class="link" id="leave_request">Leave Applications</a>
-                </td>
-            </tr>
-            
               
             <tr>
                 <td style="text-align: center">
@@ -119,10 +114,10 @@
 
   <ul style="Line-height:3em; font-size: 1.2em;List-style-type:none; ">
 
-  <li>1. This is this </li>
-  <li>2. This is this </li>
-  <li>3. This is this </li>
-  <li>4. This is this </li>
+  <li>1. "This is Admin Side" </li>
+  <li>2. Task will be allocated by Admin. </li>
+  <li>3. Admin can delete and create tasks. </li>
+  <li>4. Make sure to complete the assigned tasks. </li>
 
 
 

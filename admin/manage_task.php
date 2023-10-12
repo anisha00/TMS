@@ -8,7 +8,7 @@
 <body>
 
    <center> <h3>Total assigned task list</h3></center><br>
-    <table>
+    <table class="table">
         <tr>
             <th>Number</th>
             <th>Task ID</th>

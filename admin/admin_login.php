@@ -1,9 +1,14 @@
 <?php
+session_start();
     include('../includes/connection.php');
     if(isset($_POST['adminLogin'])){
-        $query="select email,password,name,Uid from users where email='$_POST[email]' AND password= '$_POST[password]'";
+        $query="select email,password,name,Aid from admins where email='$_POST[email]' AND password= '$_POST[password]'";
         $query_run=mysqli_query($conn,$query);
-        if($query_run){
+        if(mysqli_num_rows($query_run)){
+            while($row= mysqli_fetch_assoc($query_run)){
+                $_SESSION['email']=$row['email'];
+                $_SESSION['name']=$row['name'];
+            }
             echo"<script type=text/javascript>
             window.location.href='admin_dashboard.php';
             </script>";
@@ -22,10 +27,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
+    <script src="includes/jquery-3.5.1.js"></script>
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/style.css">
     <script src="../bootstrap/js/bootstrap.min.js"></script>
-    <script src="../includes/jquery-3.5.1.js"></script>
 </head>
 <body>
     <div class="row">
